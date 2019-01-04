@@ -6,6 +6,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from pprint import pprint
 
 ### Part 1 - Setting up
 
@@ -56,7 +57,7 @@ regressor.add(Dense(units = 1, activation='sigmoid'))
 regressor.compile(optimizer = 'rmsprop', loss = 'mean_squared_error')
 
 # Fitting the RNN to the Training set
-regressor.fit(X_train, y_train, epochs = 150, batch_size = 32)
+regressor.fit(X_train, y_train, epochs = 200, batch_size = 32)
 
 ### Part 3 - Making the predictions and visualising the results
 
@@ -76,7 +77,7 @@ predicted_stock_price = regressor.predict(inputs)
 predicted_stock_price = sc.inverse_transform(predicted_stock_price)
 
 # Visualising the results
-plt.plot(real_stock_price[len_training_set:], color = 'red', label = 'Real Stock Price')
+plt.plot(test_set, color = 'red', label = 'Real Stock Price')
 plt.plot(predicted_stock_price, color = 'blue', label = 'Predicted Stock Price')
 plt.title('Stock Price Prediction')
 plt.xlabel('Time')
