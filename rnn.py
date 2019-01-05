@@ -11,7 +11,7 @@ from pprint import pprint
 ### Part 1 - Setting up
 
 # setting timestep for LSTM
-timesteps = 50
+timesteps = 20
 
 # Importing the training set
 dataset_train = pd.read_csv('train.csv')
